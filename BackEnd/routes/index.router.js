@@ -8,10 +8,28 @@ const ctrlUser = require('../controllers/user.controller');
 const jwtHelper = require('../config/jwtHelper');
 const { request } = require('express');
 
-router.post('/register', ctrlUser.register);
+
 router.post('/authenticate', ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.get('/students',ctrlUser.gets)
+
+
+
+router.post('/register',function(req, res, next){
+  var user = new User();
+  user.fullName = req.body.fullName;
+  user.email = req.body.email;
+  user.otp=otpmail(user.email)
+  user.save((err, doc) => {
+      if (!err)
+          res.send(doc);
+      else {
+        return next(err);
+      }
+
+  });
+});
+
 
 // get single student using _id
 router.get('/student/:id',function(req,res){  
@@ -25,43 +43,8 @@ router.get('/student/:id',function(req,res){
         res.send(student)
     })
   });
-//delete  student by id
-router.delete('/delete/:id',(req,res)=>{  
-    id = req.params.id;
-    User.findByIdAndDelete({"_id":id})
-    .then(()=>{
-        console.log('Deleted successfully')
-        res.send();
-    })
-  });
-  
-// update student
-router.put('/update-student',(req,res)=>{
-    res.header("Acces-Control-Allow-Origin","*");
-    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
-    console.log(req.body)
-    let id=req.body.student._id
-    User.findByIdAndUpdate({"_id":id},
-    {
-        $set:{
-            fullName:req.body.student.fullName ,
-            email:req.body.student.email,
-            phone:req.body.student.phone,
-            address:req.body.student.address,
-            qualification:req.body.student.qualification,
-            passout:req.body.student.passout,
-            skills:req.body.student.skills,
-            employmentStatus:req.body.student.employmentStatus,
-            techtraining:req.body.student.techtraining,
-            course:req.body.student.course,
-            exitexammark:req.body.student.exitexammark
-            }
-    }) .then((data)=>{
-    console.log(data); 
-    res.send(data)
-  })
-  })
-  
+
+
   //Approve student
   
   router.post('/approve-student',(req,res)=>{
@@ -76,7 +59,8 @@ router.put('/update-student',(req,res)=>{
         }).then((data)=>{
           User.findOne({_id:req.body.id},function(err,employee){ 
               employeeMail(employee.email).then((response)=>{
-           console.log(response);
+                console.log('respo')
+    
                  res.send();
                 })
             })
@@ -84,40 +68,40 @@ router.put('/update-student',(req,res)=>{
       })
   
 
+function otpmail(data){
+  let x = Math.floor((Math.random() * 89) + 10);
+  let y = Math.floor((Math.random() * 89) + 10);
+  let otp=''
 
-
-
-
-
-router.put('/enrollment/:id',(req, res, next) => {
-   
-var user={
-        fullName : req.body.fullName,
-        email : req.body.email,
-    // user.password :req.body.password;
-        phone: req.body.phone,
-        address: req.body.address,
-        qualification: req.body.qualification,
-        passout:req.body.passout,
-        skills: req.body.skills,
-        employmentStatus: req.body.employmentStatus,
-        techtraining: req.body.techtraining,
-        course:req.body.course,
-        image: req.body.image,
-        exitexammark:req.body.exitexammark,
-        status:req.body.status
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
+  const msg ={
+  
+    from : "ICT Academy Kerala <ptest5651@gmail.com>",
+  
+    to : data,
+    subject:"OTP for User Authentication",
+    text : x.toString()+y.toString()   
+  
+  };
+  nodemailer.createTransport({
+    service: 'gmail',
+    auth :{
+      user : "ptest5651@gmail.com",
+      pass : "pcpdcpuhvokfbeuy"
+    },
+    pory:465,
+    host:'smtp.gmail.com'
+    
+    })
+    .sendMail(msg)
+    otp=x.toString()+y.toString()
+    return otp
 }
-    console.log(req.params.id)
-    console.log(user)
-    User.findByIdAndUpdate(req.params.id, { 
-        $set: user },
-        (err, doc) => {
-            if (!err) { 
-                console.log('Updated successfully')
-                res.send(doc); }
-            else { console.log('Error in Student Update :' + JSON.stringify(err, undefined, 2)); }
-        });
-})
+
+
+
+
 
 
 //send mail function
@@ -125,7 +109,7 @@ async function employeeMail(data){
 
   let x = Math.floor((Math.random() * 89) + 10);
   let y = Math.floor((Math.random() * 89) + 10);
-
+  let otp=''
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
@@ -159,15 +143,12 @@ async function employeeMail(data){
         return console.log('error occurs',err)
     }
     else{
-      console.log(x+'$'+y)
-        return console.log('emailsent')
+      otp=x.toString()+y.toString()
+      console.log(otp)
+        return otp
     }
-  }
-  
-  
-  )
-  
-  
+
+  })
     }
     catch(error){
         return error

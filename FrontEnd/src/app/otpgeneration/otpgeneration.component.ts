@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
-// import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-student-signup',
-  templateUrl: './student-signup.component.html',
-  styleUrls: ['./student-signup.component.css']
+  selector: 'app-otpgeneration',
+  templateUrl: './otpgeneration.component.html',
+  styleUrls: ['./otpgeneration.component.css']
 })
-export class StudentSignupComponent implements OnInit {
+export class OtpgenerationComponent implements OnInit {
 
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   showSucessMessage: boolean;
@@ -24,9 +23,10 @@ export class StudentSignupComponent implements OnInit {
     this.userService.postUser(form.value).subscribe(
       res => {
         this.showSucessMessage = true;
-        setTimeout(() => this.showSucessMessage = false, 12000);
+        setTimeout(() => this.showSucessMessage = false, 120000);
         this.resetForm(form);
-        this.router.navigate(['/studentsignin']);
+        setTimeout(() => this.showSucessMessage = false, 120000);
+        this.router.navigate(['/validate']);
       },
       err => {
         if (err.status === 422) {

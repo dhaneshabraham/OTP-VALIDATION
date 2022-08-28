@@ -3,19 +3,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
 import { User } from './user.model';
-import { Employer } from './employer.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  selectedEmployer:Employer={
-    fullName: '',
-    email: '',
-    password: ''
-  }
+
   selectedUser: User = {
     fullName: '',
     email: '',
+    otp:'',
     password: '',
     phone:'',
     address:'',

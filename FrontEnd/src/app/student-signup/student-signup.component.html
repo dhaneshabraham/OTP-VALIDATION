@@ -3,7 +3,7 @@
  <div class="container">
     <div class="form-container">
       <form class="form" #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-        <h1 class="sg">SIGN UP</h1>
+        <h1 class="sg">O T P GENERATOR </h1>
         <div class="form-control">
           <input type="text" class="input" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
           required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }">
@@ -19,21 +19,14 @@
           <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
           </div>
         </div>
-        <div class="form-control">
-          <input type="password" class="input" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
-          minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
-          <div *ngIf="signUpForm.submitted && password.errors">
-          <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
-          <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
-          </div>
-        </div>
+    
         <div class="success" *ngIf="showSucessMessage">
-          Account Created Successfully
+          OTP sent Successfully
         </div>   
         <div class="alert" *ngIf="serverErrorMessages">
           {{serverErrorMessages}}
         </div>
-        <button class="btn btn-login">Sign-Up</button>
+        <button class="btn btn-login">Generate O T P</button>
       </form>
 
   

@@ -1,0 +1,31 @@
+<section class="section-login">
+  <div class="container">
+    <div class="form-container">
+      <form class="form" #validateForm="ngForm" (ngSubmit)="validate.valid && onSubmit(validateForm)">
+        <h1 class="sg">VALIDATE OTP</h1>
+        <div class="form-control">
+          <label ><b> Enter Your OTP </b></label>
+          <input type="text" class="input" name="otp" #otp="ngModel" [(ngModel)]="model.otp" placeholder="OTP"  required>
+        </div>
+  
+        <input type="submit" value="VALIDATE">
+
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>  
+        
+      </form>
+      <div class="sign-up">
+        <div>
+          <h2 class="text">Didn't get an OTP?</h2>
+        </div>
+        
+        <button class="btn btn-sign-up" [routerLink]="['/otp']">GET IT NOW</button>
+      </div>
+
+  
+
+    </div>
+  </div>
+</section>

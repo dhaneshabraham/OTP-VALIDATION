@@ -22,6 +22,8 @@ import { StudentSigninComponent } from './student-signin/student-signin.componen
 import { Ng2SearchPipeModule} from "ng2-search-filter";
 import { FileSelectDirective } from 'ng2-file-upload';
 import { HomeComponent } from './home/home.component';
+import { OtpgenerationComponent } from './otpgeneration/otpgeneration.component';
+import { ValidationComponent } from './validation/validation.component';
 
 
 
@@ -32,6 +34,8 @@ import { HomeComponent } from './home/home.component';
     StudentSigninComponent,
     FileSelectDirective,
     HomeComponent,
+    OtpgenerationComponent,
+    ValidationComponent,
   ],
   imports: [
     BrowserModule,
