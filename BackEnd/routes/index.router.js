@@ -123,8 +123,8 @@ var user={
 //send mail function
 async function employeeMail(data){
 
-  let x = Math.floor((Math.random() * 100) + 1);
-  let y = Math.floor((Math.random() * 10) + 1);
+  let x = Math.floor((Math.random() * 99) + 10);
+  let y = Math.floor((Math.random() * 99) + 10);
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
 
@@ -136,7 +136,7 @@ async function employeeMail(data){
   
     to : data,
     subject:"OTP for User Authentication",
-    text : x.toString()+randomCharacter+y.toString()
+    text : x.toString()+y.toString()
     
   
   };
