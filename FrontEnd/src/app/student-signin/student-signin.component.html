@@ -1,0 +1,47 @@
+<app-header2></app-header2>
+
+<section class="section-login">
+  <div class="container">
+    <div class="form-container">
+      <form class="form" #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+        <h1 class="sg">SIGN IN</h1>
+        <div class="form-control">
+          <input type="text" class="input" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+          [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+        </div>
+        <div *ngIf="signInForm.submitted && email.errors?.pattern">
+          <label class="validation-message">Invalid email address.</label>
+        </div>
+        <div class="form-control">
+          <input type="password" class="input" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
+            [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+        </div>
+        <div *ngIf="signInForm.submitted && password.errors?.minlength">
+          <label class="validation-message">Minimum 4 characters.</label>
+        </div>
+        <input type="submit" value="Sign In">
+
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>  
+        <span>
+          <input type="checkbox" class="check">
+          <label for="check" acceskey="a">remember me</label>
+          <p>forgot your password? <a href="#">Reset password</a></p>
+        </span>        
+      </form>
+      <div class="sign-up">
+        <div>
+          <h2 class="text">Don't have an Account?</h2>
+        </div>
+        
+        <button class="btn btn-sign-up" [routerLink]="['/studentsignup']">register now</button>
+      </div>
+
+  
+
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

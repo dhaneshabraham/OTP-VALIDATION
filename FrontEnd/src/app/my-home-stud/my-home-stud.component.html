@@ -1,0 +1,28 @@
+
+<div class="row">
+  <div class="column" >
+    <!-- <div class="card"> -->
+      <div class="headdiv">
+        <h4>Student Profile Card</h4>
+      </div>
+      <div class="up">
+        <img src="{{userDetails.image}}" style="width:50%">
+        <h1>{{userDetails.fullName}}</h1>
+        <p class="title">{{userDetails.course}}</p>
+        <p>{{userDetails.email}}</p>
+        <p><button (click)="showMore()">more</button></p>
+      </div>
+  </div>
+  <div class="column" *ngIf="divClass">
+    <div class="rdiv">
+      <div class="p-3 mb-2 bg-light text-dark"><span class="disp">Phone : {{userDetails.phone}}</span></div>
+      <div class="p-3 mb-2 bg-info text-white"><span class="disp">Address : {{userDetails.address}}</span></div>
+      <div class="p-3 mb-2 bg-primary text-white"><span class="disp">Qualification : {{userDetails.qualification}}</span></div>
+      <div class="p-3 mb-2 bg-secondary text-white"><span class="disp">Passout : {{userDetails.passout}}</span></div>
+      <div class="p-3 mb-2 bg-success text-white"><span class="disp">Employment Status : {{userDetails.employmentStatus}}</span></div>
+      <div class="p-3 mb-2 bg-danger text-white"><span class="disp">Skills : {{userDetails.skills}}</span></div>
+      <div class="p-3 mb-2 bg-warning text-dark"><span class="disp">Technical Training : {{userDetails.techtraining}}</span></div>
+    </div>
+</div>
+  
+</div>

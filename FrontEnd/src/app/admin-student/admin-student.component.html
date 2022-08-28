@@ -1,0 +1,61 @@
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+  <div class="row">
+
+            <div class="owl-theme">
+                 <div class="item item-seventh">
+                      <div class="caption">
+                           <div class="container">
+                                <div class="col-md-8 col-sm-1">
+                                    <h1>Student Administration</h1>
+                                </div>
+                           </div>
+                      </div>
+                 </div>
+
+                
+            </div>
+
+  </div>
+</section>
+
+
+<div class="search mt-5">
+
+
+<table class="table">
+  <thead>
+    <tr class="table-danger">
+      <th scope="col">Name of Student</th>
+      <th scope="col">Course </th>
+      <th scope="col">status</th>
+      <th scope="col">Actions</th>
+   
+    </tr>
+  </thead>
+  <tbody >
+    
+      
+    <tr *ngFor="let student of students ">
+      <td  data-label="Name of Student" scope="row">{{student.fullName}}</td>
+      <td data-label="Student id" scope="row">{{student.course}}</td>
+      <td data-label="Student id" scope="row">{{student.status}}</td>
+      <td>
+          <button type="button" class="btn btn-primary" (click)="editStudent(student)" >Viewdetails</button>
+          <button type="button" class="btn btn-danger" (click)="deleteStudent(student)"style="margin-left:1em">Delete</button>
+          <!--   <button type="button" class="btn btn-secondary"style="margin-left:1em">Approve</button>-->
+         
+
+      </td>
+     <!-- <td  data-label="Qualification">{{student.qualification}}</td>-->
+    
+    </tr>
+    <div>
+    <div *ngIf="students.length === 0" class="text-center" style="padding: 5px; color: rgb(20, 20, 20);"><h5>No Results Found</h5></div>
+    </div>
+  </tbody>
+</table>
+
+</div>
+
+
+

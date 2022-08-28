@@ -1,0 +1,65 @@
+<header class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <span class="fs-4">ICT Student Enrollment System</span>
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="60" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center navbar-right mb-md-0">
+        <li><a  routerLink="/employersignin" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a routerLink="/employersignup" class="nav-link px-2 text-secondary">Register</a></li>
+      </ul>
+
+    </div>
+  </div>
+  
+</header>
+<section class="section-login"> 
+  <div class="container">
+    <div class="form-container">
+      <form class="form" #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+        <h1 class="sg">Employer SIGN UP</h1>
+        <div class="form-control">
+          <input type="text" class="input" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Organization Name"
+          required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }">
+          <div *ngIf="signUpForm.submitted && !fullName.valid">
+          <label class="validation-message">This field is required.</label>
+          </div>
+        </div>
+        <div class="form-control">
+          <input type="text" class="input" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email"
+          required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+          <div *ngIf="signUpForm.submitted && email.errors">
+          <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+          <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+          </div>
+        </div>
+        <div class="form-control">
+          <input type="password" class="input" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
+          minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+          <div *ngIf="signUpForm.submitted && password.errors">
+          <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
+          <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+          </div>
+        </div>
+        <div class="success" *ngIf="showSucessMessage">
+          Account Created Successfully
+        </div>   
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>
+        <button class="btn btn-login">Sign-Up</button>
+      </form>
+
+      <div class="sign-up">
+        <div>
+          <h2 class="text">Already have an Account?</h2>
+        </div>        
+        <button class="btn btn-sign-up" routerLink="employersignin">Sign-in</button>
+       
+      </div>
+    </div>
+  </div>
+</section>

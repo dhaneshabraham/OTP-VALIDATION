@@ -1,0 +1,73 @@
+<app-adminheader2></app-adminheader2>
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+  <div class="row">
+
+            <div class="owl-theme">
+                 <div class="item item-seventh">
+                      <div class="caption">
+                           <div class="container">
+                                <div class="float-sm-left">
+                                    <h1>Search Students</h1>
+                                </div>
+                           </div>
+                      </div>
+                 </div>
+
+                
+            </div>
+
+  </div>
+</section>
+
+
+<div class="search mt-5">
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <h3>Search</h3>
+
+      <div class="col-3">
+        <div class="form-group">
+          <input type="text" [(ngModel)] = "name" class="form-control mb-2" placeholder="Search" id="listSearch">
+        <!-- <input type="text" [(ngModel)] = "name" (ngModelChange)= "Search()" class="form-control mb-2" placeholder="Search" id="listSearch">-->
+        </div>
+      </div>
+
+
+<table class="table">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">Name of Student</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Passout Year</th>
+      <th scope="col">Employment Status</th>
+      <th scope="col">Exit Exam Mark</th>
+      <th scope="col">ICTAK course</th>
+   
+    </tr>
+  </thead>
+  <tbody >
+    
+      
+    <tr *ngFor="let student of students| filter:name ">
+      <td  data-label="Name of Student" scope="row">{{student.fullName}}</td>
+
+      <td  data-label="Qualification">{{student.qualification}}</td>
+      <td data-label="Passout Year">{{student.passout}}</td>
+      <td data-label="Employment Status">{{student.employmentStatus}}</td>
+
+      <td data-label="Exitexammark">{{student.exitexammark}}</td>
+     <td  data-label="Contact">{{student.course}}
+      </td> 
+    
+    </tr>
+    <div>
+    <div *ngIf="students.length === 0" class="text-center" style="padding: 5px; color: rgb(20, 20, 20);"><h5>No Results Found</h5></div>
+    </div>
+  </tbody>
+  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+</table>
+
+</div>
+

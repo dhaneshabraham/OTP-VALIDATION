@@ -1,0 +1,145 @@
+<div class="container ">
+  <form class="form" #updateForm="ngForm" (ngSubmit)="updateForm.valid && onSubmit(updateForm)">
+    <div class="row">
+   
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <div class="up">
+            <div class="user-logo"><img [src]="url" *ngIf="url"></div>
+          </div>
+          <div class="inputfield">
+            <label for="file">Upload Photo</label>
+            <input
+              type="file"
+              (change)="selectFile($event)"
+      
+              class="input form-control"
+              name="image"
+              required
+            /> 
+          </div>
+
+
+
+
+
+
+          <div class="row mt-2">         
+            <span class="font-weight-bold">{{userDetails.fullName}}</span>
+            <span class="text-black-50">{{userDetails.email}}</span>   
+          </div>     
+        </div>
+      </div>  
+      <div class="col-md-5 border-right">
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-10">Full Name
+                <input  type="email" class="input form-control" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Enter Full Name" value="{{userDetails.fullName}}">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-10">Email 
+                <input  type="email" class="input form-control" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Enter Email" value="{{userDetails.email}}">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-10">Course
+                <select class="form-control" #course="ngModel" [(ngModel)]="userService.selectedUser.course" name="course">
+                  <option value="">{{userDetails.course}}</option>
+                  <option value="Full Stack Web Development">Full Stack Web Development</option>
+                  <option value="Artificial Intelligence">Artificial Intelligence</option>
+                  <option value="Blockchain Technology">Blockchain Technology</option>                  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-10">Phone Number
+                <input type="tel" class="input form-control" #phone="ngModel" [(ngModel)]="userService.selectedUser.phone"  name="phone" value="{{userDetails.phone}}" >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-10">Address
+                <input type="email" class="input form-control" #address="ngModel" [(ngModel)]="userService.selectedUser.address"  name="address" value="{{userDetails.address}}">
+              </div>
+            </div>
+          </div>  
+        </div> 
+      </div> 
+     <div class="col-md-4">
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">Qualification
+                <select class="form-control" #qualification="ngModel" [(ngModel)]="userService.selectedUser.qualification" name="qualification">
+                  <option value="">{{userDetails.qualification}}</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="B.Tech">B.Tech</option>
+                  <option value="M.Tech">M.Tech</option>
+                  <option value="BE">BE</option>
+                  <option value="ME">ME</option>
+                  <option value="BSc">BSc</option>
+                  <option value="MSc">MSc</option>
+                  <option value="BCA">BCA</option>
+                  <option value="MCA">MCA</option>
+                  <option value="Others">Others</option>    
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">Passout Year
+                <input type="number" class="input form-control"  #passout="ngModel" [(ngModel)]="userService.selectedUser.passout" name="passout" value="{{userDetails.passout}}">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">Skills
+                <input type="email" class="input form-control" #skills="ngModel" [(ngModel)]="userService.selectedUser.skills" name="skills" value="{{userDetails.skills}}">
+                
+            </div>
+          </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">Technology Training
+                <input type="email" class="input form-control" #techtraining="ngModel" [(ngModel)]="userService.selectedUser.techtraining" name="techtraining" value="{{userDetails.techtraining}}">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">Employment Status
+                
+                <select class="form-control" #employmentStatus="ngModel" [(ngModel)]="userService.selectedUser.employmentStatus" name="employmentStatus">
+                  <option value="">{{userDetails.employmentStatus}}</option>
+                  <option value="employed">Employed</option>
+                  <option value="student">Student</option>
+                  <option value="self-employed">Self Employed</option>
+                </select>
+              </div>
+            </div>
+          </div>      
+        </div>   
+        <div class="mt-5 text-center">
+          <button class="btn btn-primary profile-button" >Save Profile</button>
+        </div>   
+      </div>
+     </div>
+  
+  </form>
+</div>
+
+
+
+

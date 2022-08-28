@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+
+.enroll{
+    float: left;
+    width: 100%;
+    background-color: #F7E2D6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  padding: 0 10px;
+}
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  margin: 25px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+  padding: 30px;
+  margin-left: 5em ;
+  display: grid; 
+  justify-content: center; /*horizontal*/ 
+  align-content: center; /*vertical*/
+ }
+
+.wrapper .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #0F3460;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form {
+  width: 100%;
+}
+
+.wrapper .form .inputfield {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label {
+  width: 200px;
+  color: #0F3460;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea {
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.wrapper .form .inputfield .custom_select {
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus {
+  border: 1px solid #fec107;
+}
+
+.wrapper .form .inputfield p {
+  font-size: 14px;
+  color: #0F3460;
+}
+.wrapper .form .inputfield .check {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.wrapper .form .inputfield .check input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.wrapper .form .inputfield .check .checkmark {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fec107;
+  display: block;
+  position: relative;
+}
+.wrapper .form .inputfield .check .checkmark:before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark {
+  background: #fec107;
+}
+
+.wrapper
+  .form
+  .inputfield
+  .check
+  input[type="checkbox"]:checked
+  ~ .checkmark:before {
+  display: block;
+}
+
+.wrapper .form .inputfield .btn {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 0px;
+  background: #0F3460;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover {
+  background: #ffd658;
+}
+
+.wrapper .form .inputfield:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 420px) {
+  .wrapper .form .inputfield {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label {
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms {
+    flex-direction: row;
+  }
+}
+/* 
+.wrapper .form .inputfield .ng-invalid {
+  border-left: 5px solid red;
+}
+.wrapper .form .inputfield .ng-valid {
+  border-left: 5px solid green;
+
+
+}
+*/
+.card{
+    float: left;
+    margin-top: 150px;
+    margin-left: 150px;
+    position: sticky;
+}
+.event {
+
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+}
+
+.event .content {
+    background: #2C3639;
+    color: #fff;
+    bottom: 0;
+    height: 68px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: all .5s ease;
+    width: 100%;
+}
+
+.event h3 {
+    font: bold 1em/1.125em 'Montserrat', Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    height: 68px;
+    margin: 0;
+    padding-top: 20px;
+    text-transform: uppercase;
+}
+
+.event .rollover {
+    border-top: 1px solid #59E4DF;
+    font-size: .9375em;
+    line-height: 1.4em;
+    padding: 18px 20px;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.event .rollover p {
+    margin: 0;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.event:hover .content {
+    background: rgba(93,67,27,.7);
+    height: 100%;
+}
+
+.event:hover .rollover {
+    opacity: 1;
+}

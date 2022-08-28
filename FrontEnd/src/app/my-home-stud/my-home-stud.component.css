@@ -1,0 +1,74 @@
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: rgb(150, 145, 145);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+    color: rgb(255, 247, 0);
+  }
+  img{
+    border-radius: 20;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .columns {
+    margin-top: 80px;
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  .column {
+    float: left;
+    width: 50%;
+    /* padding: 10px; */
+  }
+  
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .rdiv{
+    padding-top: 20px;
+  }
+  .disp{
+    font-weight: bold;
+  }
+  
