@@ -10,13 +10,13 @@ import { EditmyHomeStudComponent } from './editmy-home-stud/editmy-home-stud.com
 import { HomeComponent } from './home/home.component';
 import { HomeMainComponent } from './home-main/home-main.component';
 
-import { FeaturesComponent } from './features/features.component';
+
 
 import { AdminStudentComponent } from './admin-student/admin-student.component';
 import { AdminUpdatestudentComponent } from './admin-updatestudent/admin-updatestudent.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
-import { StudSearchComponent } from './stud-search/stud-search.component';
+
 import { EmployerComponent } from './employer/employer.component';
 import { EmployerloginComponent } from './employerlogin/employerlogin.component';
 import { EmployersignupComponent } from './employersignup/employersignup.component';
