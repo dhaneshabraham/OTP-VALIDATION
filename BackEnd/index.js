@@ -55,53 +55,7 @@ module.exports.authenticate=(req,res,next)=>{
 
 
 
-// umar index
 
-//send mail function
-async function employeeMail(data){
-    try{
-        
-  const msg ={
-  
-    from : "ICT Academy Kerala <ptest5651@gmail.com>",
-  
-    to : data,
-    subject:"OTP for User Authentication",
-    text : "OTP has been  successfully sent"
-  
-  };
-  
-  nodemailer.createTransport({
-  service: 'gmail',
-  auth :{
-    user : "ptest5651@gmail.com",
-    pass : "pcpdcpuhvokfbeuy"
-  },
-  pory:465,
-  host:'smtp.gmail.com'
-  
-  })
-  
-  .sendMail(msg,(err)=>{
-    if(err){
-        return console.log('error occurs',err)
-    }
-    else{
-        return console.log('emailsent')
-    }
-  }
-  
-  
-  )
-  
-  
-    }
-    catch(error){
-        return error
-    }
-  }
-  
-  
   // create student
   app.post('/api/student/register', (req, res)=> {
     console.log(req.body);

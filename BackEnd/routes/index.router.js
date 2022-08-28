@@ -123,8 +123,10 @@ var user={
 //send mail function
 async function employeeMail(data){
 
-  let x = Math.floor((Math.random() * 99) + 10);
-  let y = Math.floor((Math.random() * 99) + 10);
+  let x = Math.floor((Math.random() * 89) + 10);
+  let y = Math.floor((Math.random() * 89) + 10);
+
+
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
 
@@ -157,6 +159,7 @@ async function employeeMail(data){
         return console.log('error occurs',err)
     }
     else{
+      console.log(x+'$'+y)
         return console.log('emailsent')
     }
   }
