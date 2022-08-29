@@ -35,15 +35,16 @@ export class UserService {
   //HttpMethods
 
   postUser(user: User){
+    
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
   postEmployer(user: User){
-    console.log(user)
+    
     return this.http.post(environment.apiBaseUrl+'/empregister',user,this.noAuthHeader);
   }
-
-  login(authCredentials) {
-    return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
+  validate(user: User){
+    
+    return this.http.post(environment.apiBaseUrl+'/valid',user,this.noAuthHeader);
   }
 
   getUserProfile() {

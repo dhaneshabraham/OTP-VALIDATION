@@ -9,10 +9,26 @@ const jwtHelper = require('../config/jwtHelper');
 const { request } = require('express');
 
 
-router.post('/authenticate', ctrlUser.authenticate);
+// router.post('/authenticate', ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
-router.get('/students',ctrlUser.gets)
 
+
+router.post('/valid',function(req, res, next){
+  console.log('user validated')
+  console.log(req.body.email)
+  console.log(req.body.otp)
+  let ot=req.body.otp
+  let em=req.body.email
+  User.findOne({email:em},function(err,user){ 
+    if(user.otp==ot)
+    {
+      console.log('OTP MATCHED')
+      res.send(user)
+    }
+    else
+    return next(err);
+})
+});
 
 
 router.post('/register',function(req, res, next){

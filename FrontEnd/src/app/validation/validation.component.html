@@ -1,20 +1,22 @@
 <section class="section-login">
   <div class="container">
     <div class="form-container">
-      <form class="form" #validateForm="ngForm" (ngSubmit)="validate.valid && onSubmit(validateForm)">
+      
+      <form class="form" #validateForm="ngForm" (ngSubmit)="onSubmit(validateForm)">
+
         <h1 class="sg">VALIDATE OTP</h1>
         <div class="form-control">
-          <label ><b> Your Email </b></label>
-          <input type="text" class="input" placeholder={{email}} name="email" [disabled]="true">
+          <label ><b> Your Email</b></label>
+          <input type="text" class="input" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder={{emails}} value={{emails}}>
         </div>
         <div class="form-control">
-          <label ><b> Enter Your OTP </b></label>
-          <input type="text" class="input" name="otp" #otp="ngModel" [(ngModel)]="model.otp" placeholder="OTP"  required>
+          <label ><b> Enter O T P </b></label>
+          <input type="text" class="input" #otp="ngModel" [(ngModel)]="userService.selectedUser.otp" name="otp" >
         </div>
-  
-        <input type="submit" value="VALIDATE">
+       
+          <input type="submit" value="VALIDATE">
 
-        <!-- Error message -->
+     
         <div class="alert" *ngIf="serverErrorMessages">
           {{serverErrorMessages}}
         </div>  

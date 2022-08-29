@@ -15,15 +15,11 @@ import { UserService } from './shared/user.service';
 //other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { StudentSignupComponent } from './student-signup/student-signup.component';
-import { StudentSigninComponent } from './student-signin/student-signin.component';
-
-
 import { Ng2SearchPipeModule} from "ng2-search-filter";
 import { FileSelectDirective } from 'ng2-file-upload';
-import { HomeComponent } from './home/home.component';
 import { OtpgenerationComponent } from './otpgeneration/otpgeneration.component';
 import { ValidationComponent } from './validation/validation.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -31,12 +27,10 @@ import { ValidationComponent } from './validation/validation.component';
 @NgModule({
   declarations: [
     AppComponent,
-    StudentSignupComponent,
-    StudentSigninComponent,
     FileSelectDirective,
-    HomeComponent,
     OtpgenerationComponent,
-    ValidationComponent
+    ValidationComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
