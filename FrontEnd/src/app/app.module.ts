@@ -27,6 +27,7 @@ import { ValidationComponent } from './validation/validation.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { ValidationComponent } from './validation/validation.component';
     FileSelectDirective,
     HomeComponent,
     OtpgenerationComponent,
-    ValidationComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,
