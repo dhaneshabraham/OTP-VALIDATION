@@ -45,20 +45,7 @@ export class OtpgenerationComponent implements OnInit {
     this.userService.selectedUser = {
     fullName: '',
     email: '',
-    otp:'',
-    password: '',
-    phone:'',
-    address:'',
-    qualification:'',
-    passout:'',
-    skills:'',
-    employmentStatus:'',
-    techtraining:'',
-    course:'',
-    image:'',
-    exitexammark:'',
-    status:'',
-    studId:''
+    otp:''
     };
     form.resetForm();
     this.serverErrorMessages = '';
